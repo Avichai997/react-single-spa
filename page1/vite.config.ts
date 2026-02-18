@@ -13,11 +13,11 @@ export default defineConfig({
       type: 'mife',
       serverPort: 4102,
       spaEntryPoints: 'src/spa.tsx',
-      cssStrategy: 'none',
+      cssStrategy: 'singleMife',
     }),
   ],
   server: {
-   port: 4102,
+    port: 4102,
     cors: true,
     hmr: !forSingleSpa,
     headers: {
