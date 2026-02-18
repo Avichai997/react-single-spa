@@ -3,6 +3,7 @@ import tailwindcss from '@tailwindcss/vite';
 import { defineConfig } from 'vite';
 import vitePluginSingleSpa from 'vite-plugin-single-spa';
 
+declare const process: { env: Record<string, string | undefined> };
 const forSingleSpa = process.env.SINGLE_SPA === 'true';
 
 export default defineConfig({

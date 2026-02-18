@@ -3,11 +3,12 @@ import tailwindcss from '@tailwindcss/vite';
 import { defineConfig } from 'vite';
 import vitePluginSingleSpa from 'vite-plugin-single-spa';
 
+declare const process: { env: Record<string, string | undefined> };
 const forSingleSpa = process.env.SINGLE_SPA === 'true';
 
 export default defineConfig({
   plugins: [
-    react({ fastRefresh: !forSingleSpa }), // ✅ key line
+    react(),
     tailwindcss(),
     vitePluginSingleSpa({
       type: 'mife',
@@ -18,6 +19,7 @@ export default defineConfig({
   ],
   server: {
     port: 4101,
+    hmr: !forSingleSpa,
     origin: 'http://localhost:4101',
     cors: true,
   },
