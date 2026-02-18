@@ -1,0 +1,8 @@
+@import "tailwindcss";
+@source "../index.html";
+
+/* Ensure the sidebar mount point and single-spa's wrapper div stretch full height */
+#sidebar,
+#sidebar > div {
+  height: 100%;
+}

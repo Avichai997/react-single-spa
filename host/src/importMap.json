@@ -1,0 +1,7 @@
+{
+  "imports": {
+    "@chkp/sidebar": "/sidebar/spa.js",
+    "@chkp/page1": "/page1/spa.js",
+    "@chkp/page2": "/page2/chkp-page2.js"
+  }
+}
