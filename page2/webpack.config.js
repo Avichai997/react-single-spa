@@ -35,9 +35,9 @@ module.exports = (webpackConfigEnv = {}, argv) => {
 
   return {
     mode: isProduction ? "production" : "development",
-    entry: path.resolve(__dirname, "src/chkp-page2"),
+    entry: path.resolve(__dirname, "src/spa"),
     output: {
-      filename: "chkp-page2.js",
+      filename: "spa.js",
       libraryTarget: "module",
       path: path.resolve(__dirname, "dist"),
       uniqueName: "page2",

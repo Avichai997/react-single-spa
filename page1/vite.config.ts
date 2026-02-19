@@ -20,7 +20,7 @@ export default defineConfig({
   server: {
     port: 4102,
     cors: true,
-    hmr: !forSingleSpa,
+    // hmr: !forSingleSpa,
     headers: {
       'Access-Control-Allow-Origin': '*',
     },

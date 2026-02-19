@@ -2,6 +2,6 @@
   "imports": {
     "@chkp/sidebar": "http://localhost:4101/src/spa.tsx",
     "@chkp/page1": "http://localhost:4102/src/spa.tsx",
-    "@chkp/page2": "http://localhost:4201/chkp-page2.js"
+    "@chkp/page2": "http://localhost:4201/spa.js"
   }
 }

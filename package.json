@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "npm run build:mfes && npm run sync:mfes && npm run dev --prefix host",
-    "dev:mfes": "concurrently -n sidebar,page1,page2 -c green,yellow,magenta \"cross-env SINGLE_SPA=true npm run dev --prefix sidebar\" \"cross-env SINGLE_SPA=true npm run dev --prefix page1\" \"npm run dev --prefix page2\"",
+    "start:dev": "npm run build:mfes && npm run sync:mfes && npm run dev --prefix host",
+    "sync:mfes": "rm -rf host/public/sidebar host/public/page1 host/public/page2 && mkdir -p host/public/sidebar host/public/page1 host/public/page2 && cp -R sidebar/dist/* host/public/sidebar/ && cp -R page1/dist/* host/public/page1/ && cp -R page2/dist/* host/public/page2/",
+    "start:mfes": "concurrently -n sidebar,page1,page2 -c green,yellow,magenta \"cross-env SINGLE_SPA=true npm run dev --prefix sidebar\" \"cross-env SINGLE_SPA=true npm run dev --prefix page1\" \"npm run dev --prefix page2\"",
     "build:mfes": "npm run build --prefix sidebar && npm run build --prefix page1 && npm run build --prefix page2",
-    "start": "concurrently -n host,sidebar,page1,page2 -c blue,green,yellow,magenta \"npm run dev --prefix host\" \"npm run dev --prefix sidebar\" \"npm run dev --prefix page1\" \"npm run dev --prefix page2\"",
     "start:host": "npm run dev --prefix host",
     "start:sidebar": "npm run dev --prefix sidebar",
     "start:page1": "npm run dev --prefix page1",
