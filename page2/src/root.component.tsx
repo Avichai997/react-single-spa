@@ -6,7 +6,7 @@ export default function Root() {
 
   return (
     <div className="max-w-2xl">
-      <h1 className="text-3xl font-bold text-emerald-700 mb-4">Page 2</h1>
+      <h1 className="text-3xl font-bold text-emerald-700 mb-4">Page 200</h1>
       <p className="text-gray-600 mb-6">
         This is <strong>Page 2</strong> micro-frontend, built with{' '}
         <span className="font-mono text-sm bg-gray-100 px-1 py-0.5 rounded">
