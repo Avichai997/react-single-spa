@@ -7,6 +7,7 @@ declare const process: { env: Record<string, string | undefined> };
 const forSingleSpa = process.env.SINGLE_SPA === 'true';
 
 export default defineConfig({
+  base: './',
   plugins: [
     react(),
     tailwindcss(),
@@ -19,9 +20,11 @@ export default defineConfig({
   ],
   server: {
     port: 4101,
-    hmr: !forSingleSpa,
-    origin: 'http://localhost:4101',
     cors: true,
+    headers: {
+      'Access-Control-Allow-Origin': '*',
+    },
+    hmr: !forSingleSpa,
   },
   build: {
     rollupOptions: {

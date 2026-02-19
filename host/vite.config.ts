@@ -13,8 +13,7 @@ export default defineConfig({
         buttonPos: 'bottom-right',
       },
       importMaps: {
-        type: 'overridable-importmap',
-        dev: ['src/importMap.json', 'src/importMap.shared.json'],
+        dev: ['src/importMap.dev.json', 'src/importMap.shared.json'],
         build: ['src/importMap.json', 'src/importMap.shared.json'],
       },
     }),

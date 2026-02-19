@@ -1,23 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>MFE Host - @chkp</title>
-    <link rel="stylesheet" href="/src/index.css" />
-  </head>
-  <body class="min-h-screen bg-gray-50 text-gray-900">
-    <div class="flex min-h-[calc(100vh-52px)]">
-      <!-- Sidebar MFE mounts here -->
-      <div id="sidebar" class="w-64 shrink-0"></div>
 
-      <!-- Page MFEs mount here -->
-      <main id="content" class="flex-1 p-6">
-        <div id="single-spa-application:@chkp/page1"></div>
-        <div id="single-spa-application:@chkp/page2"></div>
-      </main>
-    </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MFE Host - @chkp</title>
 
-    <script type="module" src="/src/main.ts"></script>
-  </body>
+  <!-- ✅ React Refresh "preamble" stub for MFEs loaded via import maps (no HTML entrypoint) -->
+  <script type="module">
+    // Make @vitejs/plugin-react stop throwing:
+    // "can't detect preamble. Something is wrong."
+    window.__vite_plugin_react_preamble_installed__ = true;
+    window.$RefreshReg$ = () => { };
+    window.$RefreshSig$ = () => (type) => type;
+  </script>
+
+  <link rel="stylesheet" href="/src/index.css" />
+</head>
+
+<body class="min-h-screen bg-gray-50 text-gray-900">
+  <div class="flex min-h-[calc(100vh-52px)]">
+    <!-- Sidebar MFE mounts here -->
+    <div id="sidebar" class="w-64 shrink-0"></div>
+
+    <!-- Page MFEs mount here -->
+    <main id="content" class="flex-1 p-6">
+      <div id="single-spa-application:@chkp/page1"></div>
+      <div id="single-spa-application:@chkp/page2"></div>
+    </main>
+  </div>
+
+  <script type="module" src="/src/main.ts"></script>
+</body>
+
 </html>
