@@ -23,4 +23,10 @@ registerApplication({
   activeWhen: ['/page2'],
 });
 
+registerApplication({
+  name: '@chkp/page3',
+  app: () => loadMfe('@chkp/page3'),
+  activeWhen: ['/page3'],
+});
+
 start({ urlRerouteOnly: true });

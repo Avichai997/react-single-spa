@@ -1,3 +1,24 @@
+import { useState, useEffect } from 'react';
+
+function usePathname() {
+  const [pathname, setPathname] = useState(window.location.pathname);
+
+  useEffect(() => {
+    const update = () => setPathname(window.location.pathname);
+
+    // single-spa fires these on route changes
+    window.addEventListener('popstate', update);
+    window.addEventListener('single-spa:routing-event', update);
+
+    return () => {
+      window.removeEventListener('popstate', update);
+      window.removeEventListener('single-spa:routing-event', update);
+    };
+  }, []);
+
+  return pathname;
+}
+
 export default function App() {
   return (
     <aside className="min-h-screen h-full bg-gray-800 text-gray-100 p-4 flex flex-col gap-2">
@@ -6,26 +27,19 @@ export default function App() {
       </h2>
       <NavLink href="/page1">📄 Page 1</NavLink>
       <NavLink href="/page2">📄 Page 2</NavLink>
+      <NavLink href="/page3">📄 Page 3</NavLink>
     </aside>
   );
 }
 
 function NavLink({ href, children }: { href: string; children: React.ReactNode }) {
-  const isActive =
-    typeof window !== 'undefined' && window.location.pathname.startsWith(href);
+  const pathname = usePathname();
+  const isActive = pathname.startsWith(href);
 
   const handleClick = (e: React.MouseEvent) => {
     e.preventDefault();
-    // Use single-spa navigation if available (integrated mode),
-    // otherwise fall back to regular navigation (standalone mode)
-    try {
-      // const singleSpa = (window as any).__SINGLE_SPA_DEVTOOLS__ || (window as any).System;
-      // simplest approach: history.pushState + popstate event
-      history.pushState(null, '', href);
-      window.dispatchEvent(new PopStateEvent('popstate'));
-    } catch {
-      window.location.href = href;
-    }
+    history.pushState(null, '', href);
+    window.dispatchEvent(new PopStateEvent('popstate'));
   };
 
   return (

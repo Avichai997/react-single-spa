@@ -26,6 +26,9 @@ export default defineConfig({
     },
     hmr: !forSingleSpa,
   },
+  css: {
+    devSourcemap: true,
+  },
   build: {
     rollupOptions: {
       external: ['react', 'react-dom', 'react-dom/client'],

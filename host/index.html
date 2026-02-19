@@ -15,6 +15,18 @@
     window.$RefreshSig$ = () => (type) => type;
   </script>
 
+  <script type="module">
+    // If you override MFEs to Vite dev servers and want HMR, list them here:
+    const DEV_ORIGINS = [
+      'http://localhost:4101',
+      'http://localhost:4102',
+    ];
+
+    for (const origin of DEV_ORIGINS) {
+      try { await import(`${origin}/@vite/client`); } catch { }
+    }
+  </script>
+
   <link rel="stylesheet" href="/src/index.css" />
 </head>
 
@@ -27,6 +39,7 @@
     <main id="content" class="flex-1 p-6">
       <div id="single-spa-application:@chkp/page1"></div>
       <div id="single-spa-application:@chkp/page2"></div>
+      <div id="single-spa-application:@chkp/page3"></div>
     </main>
   </div>
 
