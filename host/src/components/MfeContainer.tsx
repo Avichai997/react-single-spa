@@ -1,11 +1,11 @@
 import { createPortal } from 'react-dom';
 
-interface MfeContainerProps {
+interface IMfeContainerProps {
   name: string;
   container: string;
 }
 
-export const MfeContainer = ({ name, container }: MfeContainerProps) => {
+export const MfeContainer = ({ name, container }: IMfeContainerProps) => {
   const id = `single-spa-application:${name}`;
   const parentEl = document.getElementById(container);
 
@@ -13,12 +13,7 @@ export const MfeContainer = ({ name, container }: MfeContainerProps) => {
     throw new Error(`Container #${container} not found for MFE ${name}`);
   }
 
-  const element = (
-    <div
-      id={id}
-      className='h-full'
-    />
-  );
+  const element = <div id={id} className='h-full w-full' />;
 
   return createPortal(element, parentEl);
-}
+};

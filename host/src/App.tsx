@@ -1,6 +1,8 @@
 import { useEffect, useRef } from 'react';
 import { Outlet } from 'react-router-dom';
+
 import { RegisterMfes } from '@/applications/setup';
+
 import { applications } from './applications/mfeConfig';
 import { MfeContainer } from './components/MfeContainer';
 

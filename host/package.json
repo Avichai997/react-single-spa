@@ -6,7 +6,10 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0 --fix",
+    "format": "prettier --write \"src/**/*.{ts,tsx,json,css}\" \"*.{ts,tsx,json}\"",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "react": "^19.2.4",
@@ -19,8 +22,10 @@
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^5.1.4",
+    "eslint": "^10.0.1",
+    "prettier": "^3.8.1",
     "tailwindcss": "^4.0.0",
-    "typescript": "^5.7.0",
+    "typescript": "^5.9.3",
     "vite": "^6.1.0",
     "vite-plugin-single-spa": "^1.1.0"
   }

@@ -1,4 +1,4 @@
-export interface MfeConfig {
+export interface IMfeConfig {
   /** single-spa application name (e.g. '@chkp/page1') */
   name: string;
   /** URL path prefixes that activate this MFE */
@@ -20,7 +20,7 @@ export const CONTAINERS = {
   CONTENT: 'content',
 } as const;
 
-export const applications: MfeConfig[] = [
+export const applications: IMfeConfig[] = [
   {
     name: APPLICATIONS_NAMES.SIDEBAR,
     activeWhen: ['/'],

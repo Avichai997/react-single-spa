@@ -1,4 +1,5 @@
 import { createBrowserRouter, RouteObject } from 'react-router-dom';
+
 import { App } from './App';
 import { applications } from './applications/mfeConfig';
 
@@ -11,7 +12,7 @@ const childRoutes: RouteObject[] = applications.flatMap((mfe) =>
     }
 
     return { path: `${path.replace('/', '')}/*`, Component: EmptyRoute };
-  })
+  }),
 );
 
 export const router = createBrowserRouter([
