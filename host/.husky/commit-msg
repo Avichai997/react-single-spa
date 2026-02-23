@@ -1,0 +1,30 @@
+#!/bin/sh
+
+# This Husky commit-msg hook automatically prefixes commit messages
+# with an INXT ticket extracted from the current branch name.
+# Example:
+#   Branch: INXT-50602-enable-deployment
+#   Commit: feat: update CI
+#   Result: INXT-50602: feat: update CI
+# If no INXT ticket is found in the branch name,
+# it falls back to: INXT-12345
+
+COMMIT_MSG_FILE="$1"
+
+BRANCH_NAME="$(git rev-parse --abbrev-ref HEAD 2>/dev/null || echo "")"
+
+# Extract ticket like INXT-50602 from branch name
+TICKET="$(printf "%s" "$BRANCH_NAME" | grep -oE 'INXT-[0-9]+' | head -n 1)"
+
+# Fallback placeholder
+if [ -z "$TICKET" ]; then
+  TICKET="INXT-12345"
+fi
+
+CURRENT_MSG="$(cat "$COMMIT_MSG_FILE")"
+
+# If already prefixed, do nothing
+echo "$CURRENT_MSG" | grep -qE '^INXT-[0-9]+: ' && exit 0
+
+# Prepend ticket to commit message
+printf "%s: %s\n" "$TICKET" "$CURRENT_MSG" > "$COMMIT_MSG_FILE"

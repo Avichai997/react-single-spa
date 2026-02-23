@@ -9,7 +9,8 @@
     "preview": "vite preview",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0 --fix",
     "format": "prettier --write \"src/**/*.{ts,tsx,json,css}\" \"*.{ts,tsx,json}\"",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "prepare": "husky"
   },
   "dependencies": {
     "@chkp-i2/mgmt-eslint-config": "file:../../mgmt-eslint-config",
@@ -24,6 +25,7 @@
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^5.1.4",
     "eslint": "^9.39.3",
+    "husky": "^9.1.7",
     "prettier": "^3.8.1",
     "tailwindcss": "^4.0.0",
     "typescript": "^5.9.3",
