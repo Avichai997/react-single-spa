@@ -1,9 +1,11 @@
 import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
 import tailwindcss from '@tailwindcss/vite';
 import vitePluginSingleSpa from 'vite-plugin-single-spa';
 
 export default defineConfig({
   plugins: [
+    react(),
     tailwindcss(),
     vitePluginSingleSpa({
       type: 'root',
@@ -18,6 +20,11 @@ export default defineConfig({
       },
     }),
   ],
+  resolve: {
+    alias: {
+      '@': '/src',
+    },
+  },
   server: {
     port: 9000,
   },

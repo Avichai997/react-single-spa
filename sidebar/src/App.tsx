@@ -28,6 +28,7 @@ export default function App() {
       <NavLink href="/page1">📄 Page 1</NavLink>
       <NavLink href="/page2">📄 Page 2</NavLink>
       <NavLink href="/page3">📄 Page 3</NavLink>
+      <NavLink href="/cloud">☁️ Cloud</NavLink>
     </aside>
   );
 }

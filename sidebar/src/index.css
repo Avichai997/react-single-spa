@@ -1,3 +1,10 @@
 @import "tailwindcss";
 @source "../src/App.tsx";
 @source "../src/spa.tsx";
+
+#sidebar,
+#sidebar > div {
+  height: 100%;
+  width: 16rem;
+  flex-shrink: 0;
+}

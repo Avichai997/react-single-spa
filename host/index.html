@@ -30,20 +30,13 @@
   <link rel="stylesheet" href="/src/index.css" />
 </head>
 
-<body class="min-h-screen bg-gray-50 text-gray-900">
-  <div class="flex min-h-[calc(100vh-52px)]">
-    <!-- Sidebar MFE mounts here -->
-    <div id="sidebar" class="w-64 shrink-0"></div>
+<body class="min-h-screen bg-gray-50 flex">
+  <div id="sidebar"></div>
 
-    <!-- Page MFEs mount here -->
-    <main id="content" class="flex-1 p-6">
-      <div id="single-spa-application:@chkp/page1"></div>
-      <div id="single-spa-application:@chkp/page2"></div>
-      <div id="single-spa-application:@chkp/page3"></div>
-    </main>
-  </div>
+  <div id="content" class="overflow-x-auto flex! w-full"></div>
 
-  <script type="module" src="/src/main.ts"></script>
+  <script>window.mgmt_ui_public_path = 'http://localhost:4300/';</script>
+  <script type="module" src="/src/main.tsx"></script>
 </body>
 
 </html>

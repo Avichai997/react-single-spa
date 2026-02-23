@@ -3,7 +3,8 @@
     "@chkp/sidebar": "http://localhost:4101/src/spa.tsx",
     "@chkp/page1": "http://localhost:4102/src/spa.tsx",
     "@chkp/page2": "http://localhost:4201/spa.js",
-    "@chkp/page3": "http://localhost:4202/spa.js"
+    "@chkp/page3": "http://localhost:4202/spa.js",
+    "@chkp/mgmt-ui": "http://localhost:4300/spa.js"
   },
   "scopes": {
     "http://localhost:4202/": {
