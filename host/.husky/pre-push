@@ -1,0 +1,6 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+npx concurrently --raw --kill-others-on-fail \
+    "npm run lint" \
+    "npm run format"
