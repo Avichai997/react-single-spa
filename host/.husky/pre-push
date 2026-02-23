@@ -1,5 +1,7 @@
 #!/usr/bin/env sh
-. "$(dirname -- "$0")/_/husky.sh"
+. "$(dirname "$0")/h"
+
+"$(dirname "$0")/validate-branch-name.sh"
 
 npx concurrently --raw --kill-others-on-fail \
     "npm run lint" \
