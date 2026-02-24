@@ -1,5 +1,5 @@
-import react from '@vitejs/plugin-react';
 import tailwindcss from '@tailwindcss/vite';
+import react from '@vitejs/plugin-react';
 import { defineConfig } from 'vite';
 import vitePluginSingleSpa from 'vite-plugin-single-spa';
 
@@ -28,6 +28,11 @@ export default defineConfig({
   },
   css: {
     devSourcemap: true,
+  },
+  resolve: {
+    alias: {
+      '@': '/src',
+    },
   },
   build: {
     rollupOptions: {
