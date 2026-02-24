@@ -13,7 +13,7 @@ export const MfeContainer = ({ name, container }: IMfeContainerProps) => {
     throw new Error(`Container #${container} not found for MFE ${name}`);
   }
 
-  const element = <div id={id} className='h-full w-full' />;
+  const element = <div id={id} className='h-full w-full empty:hidden' />;
 
   return createPortal(element, parentEl);
 };
