@@ -1,6 +1,6 @@
-@import "tailwindcss";
-@source "../src/App.tsx";
-@source "../src/spa.tsx";
+@import 'tailwindcss';
+@source '../src/App.tsx';
+@source '../src/spa.tsx';
 
 #sidebar,
 #sidebar > div {

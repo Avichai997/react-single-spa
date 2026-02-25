@@ -1,5 +1,5 @@
-import react from '@vitejs/plugin-react';
 import tailwindcss from '@tailwindcss/vite';
+import react from '@vitejs/plugin-react';
 import { defineConfig } from 'vite';
 import vitePluginSingleSpa from 'vite-plugin-single-spa';
 

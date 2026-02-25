@@ -1,6 +1,6 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, ReactNode, MouseEvent } from 'react';
 
-function usePathname() {
+const usePathname = () => {
   const [pathname, setPathname] = useState(window.location.pathname);
 
   useEffect(() => {
@@ -17,27 +17,25 @@ function usePathname() {
   }, []);
 
   return pathname;
-}
+};
 
 export default function App() {
   return (
-    <aside className="min-h-screen w-[16rem] bg-gray-800 text-gray-100 p-4 flex flex-col gap-2">
-      <h2 className="text-lg font-semibold mb-4 border-b border-gray-600 pb-2">
-        Sidebar
-      </h2>
-      <NavLink href="/page1">📄 Page 1</NavLink>
-      <NavLink href="/page2">📄 Page 2</NavLink>
-      <NavLink href="/page3">📄 Page 3</NavLink>
-      <NavLink href="/cloud">☁️ Cloud</NavLink>
+    <aside className='flex min-h-screen w-[16rem] flex-col gap-2 bg-gray-800 p-4 text-gray-100'>
+      <h2 className='mb-4 border-b border-gray-600 pb-2 text-lg font-semibold'>Sidebar</h2>
+      <NavLink href='/page1'>📄 Page 1</NavLink>
+      <NavLink href='/page2'>📄 Page 2</NavLink>
+      <NavLink href='/page3'>📄 Page 3</NavLink>
+      <NavLink href='/cloud'>☁️ Cloud</NavLink>
     </aside>
   );
 }
 
-function NavLink({ href, children }: { href: string; children: React.ReactNode }) {
+const NavLink = ({ href, children }: { href: string; children: ReactNode }) => {
   const pathname = usePathname();
   const isActive = pathname.startsWith(href);
 
-  const handleClick = (e: React.MouseEvent) => {
+  const handleClick = (e: MouseEvent) => {
     e.preventDefault();
     history.pushState(null, '', href);
     window.dispatchEvent(new PopStateEvent('popstate'));
@@ -47,13 +45,11 @@ function NavLink({ href, children }: { href: string; children: React.ReactNode }
     <a
       href={href}
       onClick={handleClick}
-      className={`block px-3 py-2 rounded text-sm transition-colors ${
-        isActive
-          ? 'bg-indigo-600 text-white'
-          : 'hover:bg-gray-700 text-gray-300'
+      className={`block rounded px-3 py-2 text-sm transition-colors ${
+        isActive ? 'bg-indigo-600 text-white' : 'text-gray-300 hover:bg-gray-700'
       }`}
     >
       {children}
     </a>
   );
-}
+};
