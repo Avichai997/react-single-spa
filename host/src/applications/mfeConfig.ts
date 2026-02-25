@@ -22,11 +22,6 @@ export const CONTAINERS = {
 
 export const applications: IMfeConfig[] = [
   {
-    name: APPLICATIONS_NAMES.SIDEBAR,
-    activeWhen: ['/'],
-    container: CONTAINERS.SIDEBAR,
-  },
-  {
     name: APPLICATIONS_NAMES.PAGE1,
     activeWhen: ['/page1'],
     container: CONTAINERS.CONTENT,

@@ -21,7 +21,7 @@ function usePathname() {
 
 export default function App() {
   return (
-    <aside className="min-h-screen h-full bg-gray-800 text-gray-100 p-4 flex flex-col gap-2">
+    <aside className="min-h-screen w-[16rem] bg-gray-800 text-gray-100 p-4 flex flex-col gap-2">
       <h2 className="text-lg font-semibold mb-4 border-b border-gray-600 pb-2">
         Sidebar
       </h2>
